@@ -1,5 +1,4 @@
 const TAX_RATE: f32 = 12.5;
-
 // Type Aliase
 type Meters = i32;
 
