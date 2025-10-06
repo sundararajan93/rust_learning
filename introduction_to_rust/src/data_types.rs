@@ -1,4 +1,4 @@
-use std::path::PrefixComponent;
+use std::{num::ParseIntError, path::PrefixComponent};
 
 pub fn data_types_fun(){
     println!("Data Types");
@@ -59,5 +59,75 @@ pub fn data_types_fun(){
     let money_debit_int: i64 = money_debit as i64;
     println!("{money_debit} as {money_debit_int}");
 
+
+    // Arithmetic operations
+
+    let a: i32 = 13;
+    let b: i32 = 3;
+
+    println!("Addtion {a} + {b} = {}", a + b);
+    println!("Subtraction {a} - {b} = {}", a - b);
+    println!("Multiplication {a} * {b} = {}", a * b);
+    println!("Floor Divison {a} / {b} = {}", a / b);
+    println!("Modulous[Remainder] {a} % {b} = {}", a % b);
+
+    let a_float: f32 = a as f32;
+    let b_float: f32 = b as f32;
+    println!("Float Division {a_float} / {b_float} = {}", a_float / b_float);
+
+    // Augumented assignment operator
+
+    let mut year = 2025;
+    year = year + 1; // year = 2026 
+
+    //alternative syntax 
+
+    year += 1; // year = 2027
+
+    // This works with - * etc
+
+
+    // Boolean Type
+
+    let is_sundar_handsome: bool = true;
+
+    let age = 19;
+    let is_allowed_to_vote: bool = age > 18;
+
+    println!("{age} - {{is_allowed_to_vote}} - {}", is_allowed_to_vote);
+
+    // Boolean Inversion
+
+    let is_not_allowed_to_vote: bool = !is_allowed_to_vote;
+    println!("{age} - {{is_not_allowed_to_vote}} - {}", is_not_allowed_to_vote);
+
+
+    // Eqality and Inequality operators
+    // Equals == 
+    // Not Equals !=
+
+    println!("{}", age == 18);
+    println!("{}", age != 18);
+
+    // And Logic &&
+
+    let having_id: bool = true;
+
+    let can_vote: bool = age >= 18 && having_id;
+    println!("Return true if both condtions are true {{can_vote}} = {{age}} >= 18 && {{having_id}} - {can_vote}");
+
+    // Or Logic ||
+
+    let user: &str = "admin";
+    let has_subscription: bool = false;
+    let can_view_content: bool = user == "admin" || has_subscription;
+
+    println!("Return true even one condition is true - can_view_content - {}", can_view_content);
+
+    // Character type
+
+    let initial = 'B';
+    let emoji: char = '\u{1f980}';
+    println!("I love rust - {emoji}");
 
 }
