@@ -130,4 +130,43 @@ pub fn data_types_fun(){
     let emoji: char = '\u{1f980}';
     println!("I love rust - {emoji}");
 
+    // Array - Compound type of data 
+    // Fixed size - same type 
+
+    let numbers: [i32; 4] = [48, 66, 33, 54];
+
+    // accessing the array element
+
+    println!("{}", numbers[0]);
+    println!("{}", numbers[1]);
+    println!("{}", numbers[2]);
+    println!("{}", numbers[3]);
+
+
+    // let numbers_different_type: [i32; 3] = [23.0, 23, 45, 34]; // Throw error as 23.0 is float but our array is i32
+
+    // writing the array elements
+    // we need to have mutable array
+
+    let mut names: [&str; 3] = ["Sundar", "Presilla", "Sarvini"];
+    println!("{}", names[2]);
+    names[2] = "Pappu";
+    println!("{}", names[2]);
+    
+    // Display trait
+    println!("{}", names[2]); // {} - this interpolation is display trait 
+    // Not all the types have the display trait 
+
+    // Debug trait
+    println!("{:?}", names); // print the full array
+    println!("{:#?}", names); // pretty print the array
+
+
+    // Debug Macro - Debug Macro
+    dbg!(2 + 2); // Debug macro is helpful to have complete code from where it run
+    // It is helpful for developers
+
+    // example 
+    dbg!("{}", numbers[0]);
+
 }
