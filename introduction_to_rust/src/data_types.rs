@@ -169,4 +169,27 @@ pub fn data_types_fun(){
     // example 
     dbg!("{}", numbers[0]);
 
+    // Tuple - Fixed size, Different data type
+
+    // let employee:(&'static str, i32, &'static str, f64) = ("Sundar", 32, "Engineer", 2.6);
+    let mut employee: (&'static str, i32, &'static str, f64) = ("sundar", 32, "Engineer", 2.9);
+
+    // Accessing Tuple index 
+
+    println!("{} - {} - {}", employee.0, employee.1, employee.2);
+
+    // let name = employee.0;
+    // let age = employee.1;
+    // let role = employee.2;
+
+    // or we can use like below
+
+    let (name, age, role, experince) = employee;
+
+    println!("{} - {} - {} - {}", name, age, role, experince);
+
+    employee.3 = 3.0;
+
+    println!("{:#?}", employee);
+
 }
