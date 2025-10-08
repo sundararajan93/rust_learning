@@ -160,6 +160,7 @@ pub fn data_types_fun(){
     // Debug trait
     println!("{:?}", names); // print the full array
     println!("{:#?}", names); // pretty print the array
+    println!("{names:?}"); // Can also be written like this
 
 
     // Debug Macro - Debug Macro
@@ -192,4 +193,28 @@ pub fn data_types_fun(){
 
     println!("{:#?}", employee);
 
+
+    // Ranges - Sequence of elements
+
+    let month_days = 1..31; // Excluding 31
+    println!("{:?}", month_days);
+
+    let month_days = 1..=31;
+    println!("{:?}", month_days);
+
+
+    for days in month_days {
+        println!("{}", days);
+    }
+
+    let alpha = 'a'..'n';
+    for alphabet in alpha{
+        println!("{alphabet}");
+    }
+
+
+    // Generic
+
+    let numbers: std::ops::Range<i32> = 1..5;
+    println!("{numbers:?}");
 }
