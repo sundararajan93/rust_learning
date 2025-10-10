@@ -31,6 +31,17 @@ fn main() {
     let cube_of_32 = cube(32);
     println!("{}", cube_of_32);
     
+    let null_fun = null_function(); // This is empty function so the return type is detected as () tuple by default
+
+    // Block without function
+
+    let calculation: i32 = {
+        let value = 5 + 4;
+        value * 2
+    };
+
+    println!("{calculation}");
+
 }
 
 // Pizza business
@@ -63,4 +74,10 @@ fn square(num: i32) -> i32 {
 fn cube(num: i32) -> i32 {
     num * num * num
     // This is also a valid function with implicit return. Note this implicit return should be last line and there shouldn't be any semicolon at the end
+}
+
+// Unit of function is a tuple by default
+
+fn null_function(){
+
 }

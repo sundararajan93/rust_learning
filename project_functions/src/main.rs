@@ -8,8 +8,9 @@ fn apply_to_jobs(number: i32, title: &str) {
     
     fn alphabets(text: &str) -> (bool, bool) {
         let a = text.contains('a');
-        let b = text.contains('b');
+        let b = text.contains('z');
         (a, b)
+        // ( text.contains('a'),  text.contains('b')) // This is a simplified solution too
     }
 
 fn main() {
@@ -21,6 +22,13 @@ fn main() {
     println!("{:?}", alphabets("aardvark")); // (true, false)
     println!("{:?}", alphabets("zoology"));  // (false, true)
     println!("{:?}", alphabets("zebra"));    // (true, true)
+
+    // Terminating the implicit return results in () A unit (empty tuple)
+    let mystery = {
+        5 + 4;
+    };
+
+    println!("{mystery:?}");
 
     /*
     Define an apply_to_jobs function that accepts a
