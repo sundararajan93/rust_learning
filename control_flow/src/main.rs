@@ -44,9 +44,9 @@ fn main() {
     };
 
     let can_vote = if age >= 18 { true } else { false }; // Can be writter like this too
+    // when we assign if statement value in variable there should be type consistency
 
     println!("can_vote - {can_vote}");
-
 
     // match statement
 
@@ -116,5 +116,34 @@ fn main() {
         valueb if valueb % 2 == 1 => println!("odd"),
         _ => unreachable!()
     }
-    
+
+    // Option with OR pattern - Realtime scenario
+
+    let status_code = 404;
+
+    match status_code {
+        200 | 201 | 202 => println!("{status_code} Success!"),
+        400 | 401 | 403 => println!("{status_code} Client Error"),
+        500 | 502 | 503 => println!("{status_code} Server Error"),
+        404 => println!("{status_code} Not Found"),
+        _ => println!("{status_code} Unknown status code!"),
+    }
+
+    // println!("{status_code}");
+
+    // Range Patterns - The Matching arm will grouped based on the Range
+
+    let mark = 83;
+
+    match mark {
+        0..=39 => println!("Fail!"),
+        40..=59 => println!("Pass!"),
+        60..=79 => println!("Average"),
+        80..=100 => println!("Distinction"),
+        _ => println!("Unknown Mark"),
+    }
+
+
+
+
 }
