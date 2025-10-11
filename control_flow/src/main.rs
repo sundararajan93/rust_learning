@@ -144,6 +144,38 @@ fn main() {
     }
 
 
+    let mut attempts = 3;
+    let mut pin = 1234;
+
+    loop {
+        if attempts <=0 {
+            println!("Exhausted all Attempts! Try again tomorrow!");
+            break; // breaks the loop and comes out
+        }
+
+        attempts -= 1;
+
+        println!("Remaining Attempt -  {attempts}");
+    }
+
+    // continue statement
+
+    let mut number: i32 = 21;
+
+    loop {
+        if number <= 0 {
+            println!("Loop ends here with break - {number}");
+            break;
+        }
+
+        number -= 1;
+        if number % 2 == 0 {
+            println!("Even number found {number}... continues");
+            continue;
+        }
+
+        println!("Loop - {number}");
+    }
 
 
 }
