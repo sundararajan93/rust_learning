@@ -177,5 +177,33 @@ fn main() {
         println!("Loop - {number}");
     }
 
+    // A While loop continues iterating as long as a condition is met
+    // It doesn't need break keyword to end the loop
+    // If the condition is false it would exit out of loop automatically
+
+    let mut number: i32 = 21;
+    while number > 0 {
+        println!("number is {number}");
+        number -= 1;
+    }
+
+    println!("Time is up!!!");
+
+
+    // Recursion - calling a function within a function
+    // lets say we need to have a countdown
+
+    // let countdown = 10;
+    fn countdown(seconds: i32) {
+
+        if seconds == 0 {
+            println!("Countdown limit reached");
+        }else {
+            println!("{seconds} seconds more...");
+            countdown(seconds - 1 );
+        }
+    }
+
+    countdown(5);
 
 }
