@@ -115,6 +115,34 @@ fn main() {
     println!("{text}");
 
 
+    // Dereference - Retrieving the value that is refererred 
+    let who_am_i: String = String::from("Rustacean");
+    let who_am_i_ref = &who_am_i;
+    println!("Reference - {}, Dereference - {}", who_am_i_ref, *who_am_i_ref); // Dereference can be done only with the reference which points to data in a address
+
+    // Practical use of dereference
+    let mut value = 9;
+    let value_ref = &mut value;
+    println!("{value_ref}");
+    // value_ref += 1; // We cant do this as value_ref is just pointing to address (println! macro just helps to derefer automatically so we must use dereference operator explicitly)
+    *value_ref += 1;
+    println!("{value_ref}");
 
 
+    // Dereference - practical use in string 
+    let mut who_am_i: String = String::from("Rustacean");
+    let who_am_i_ref = &mut who_am_i;
+    who_am_i_ref.push_str("s");
+    println!("Reference - {}, Dereference - {}", who_am_i_ref, *who_am_i_ref); // Dereference can be done only with the reference which points to data in a address
+
+
+    // Copy vs Move (&str vs String)
+    let original_text = "string literal";
+    let copy_text = original_text;
+    println!("{original_text} - {copy_text}");
+
+
+    let original : String = String::from("Some String");
+    let copy = original;
+    // println!("{original} - {copy}"); // original will not be owner as ownership changed already
 }
