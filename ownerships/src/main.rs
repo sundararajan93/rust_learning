@@ -145,4 +145,47 @@ fn main() {
     let original : String = String::from("Some String");
     let copy = original;
     // println!("{original} - {copy}"); // original will not be owner as ownership changed already
+
+    // Function Parameters - Function parameters are similar to variable
+    // STACK FUNCTION OWNERSHIP
+    let no_of_apples: i32 = 9;
+    print_no_of_apples(value); // Since its stack value value 9 is stored in two places (value and no_of_apples)
+    // value goes out of scope as the function ends
+    println!("no_of_apples - {no_of_apples} is valid after the function invocation");
+
+
+    // HEAP FUNCTION OWNERSHIP
+    let whoami: String = String::from("root");
+    greet_user(whoami); // let name = whoami --> Moving the variable ownership from whoami to name
+    // println!("{whoami} is invalid here as the ownership is trasferred to name parameter of function");
+
+
+    // Mutable parameters
+    let pizza: String = String::from("Pizza");
+    add_toppings(pizza); // This passes the pizza to function and the toppings will be pushed to pizza value
+    // println!("{pizza}") // Pizza is invalid as the ownership is moved
+
+    // return function --> assinging the function to a variable --> This transfers the ownership from function bake_cake to variable cake
+    let cake: String = bake_cake();
+    println!("{cake} cake");
+    // the variable cake is valid through out the scope of main block
+}
+
+fn print_no_of_apples(value: i32) {
+    println!("I have {value} apples");
+}
+
+fn greet_user(user: String) {
+    println!("Hello {user}");
+}
+
+fn add_toppings(mut toppings: String) {
+    toppings.push_str(" Cheese and Corn with Paneer"); // If the toppings are not mutable this wouldn't push the string to string parameter
+    println!("{toppings}");
+}
+
+// Return value
+
+fn bake_cake() -> String {
+    String::from("Cheese")
 }
