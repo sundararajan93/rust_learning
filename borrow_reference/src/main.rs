@@ -37,7 +37,27 @@ fn main() {
 
     println!("{} - {} - {} - {}", reference_1, reference_2, reference_3, &favorite_program );
 
+
+    // mutliple Mutable Reference - In Rust we cant have multiple mutable reference
+
+    let mut program: String = String::from("python");
+    let mut_ref1 = &mut program;
+    let mut_ref2 = &program; // Throw error if used somewhere 
+    let ref3 = &favorite_program;  // Throw error if used somewhere
+    // println!("{mut_ref1} {mut_ref2} {ref3}") // This will throw error as the refs are uses
+    println!("{mut_ref2}");
+
+
+    // another example
+    let mut car: String = String::from("Red");
+    let ref1 = &mut car;
+    let ref2 = &car;
+    println!("{ref2}") // If you call mutable reference it will throw error as both write and read happens on same reference
+
+
 }
+
+
 
 // Four ways you can call the String as parameter in function
 // meal: String (regualar Parameter)
