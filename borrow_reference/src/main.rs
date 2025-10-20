@@ -52,9 +52,19 @@ fn main() {
     let mut car: String = String::from("Red");
     let ref1 = &mut car;
     let ref2 = &car;
-    println!("{ref2}") // If you call mutable reference it will throw error as both write and read happens on same reference
+    println!("{ref2}"); // If you call mutable reference it will throw error as both write and read happens on same reference
 
 
+
+    // Copy trait immutable reference
+
+    let coffee: String = String::from("ColdCofee");
+    let a = &coffee;
+    let b = a;
+    // This is same as
+    let b = &coffee;
+
+    println!("both {{a}}- {a} and {{b}} - {b} are independent copy of &cofee (immutable reference)");
 }
 
 
