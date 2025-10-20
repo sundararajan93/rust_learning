@@ -63,8 +63,59 @@ fn main() {
     let b = a;
     // This is same as
     let b = &coffee;
-
     println!("both {{a}}- {a} and {{b}} - {b} are independent copy of &cofee (immutable reference)");
+
+
+    //Copy trait is not implemented in mutable datatypes thus the below code is going to act like ownership movement 
+    
+    let mut coffee: String = String::from("ColdCofee"); // Mutable variable
+    let a = &mut coffee; // mutable reference assigned to variable a (ownership a)
+    let b = a;  // Now since the variable a assigned to variable b. now the ownership moved to variable b
+    // println!("{a} and {b}"); // In this reference since the ownership moved to variable b from a, a variable gets invalidated 
+    // also we know that we should have only one mutable reference
+    println!("{{b}} - {b} can be used as its new owner, rust would igore variable a as it was not used anywhere else");
+
+
+    // we can make immutable reference for the mutable variable too
+    let mut example: String = String::from("Testing ");
+    let a = &example;
+    let b = a;
+    println!("a - {a} and {b}");
+
+    // Reference with Array - Stack Datatype
+
+    let config = [true, false, false];
+    let first: bool = config[0];
+    println!("{{config}} -  {config:?} and {{first}} - {first}");
+
+    // Reference with Array - Heap based Datatype
+
+    let languages: [String; 2] = [String::from("Rust"), String::from("Python")];
+    // let first = languages[0]; // We cant assign element to the variable 
+    println!("{languages:?} and {first}");
+    // This is because the heap data doesn't support copy trait. 
+
+    // Solution to this is to clone() or refer the element with & 
+    let first = languages[0].clone();
+    println!("{languages:?} and {first}");
+    
+    // using reference
+
+    let first = &languages[0];
+    println!("{languages:?} and {first} with reference to the element");
+
+
+    // Reference with tuple - Stack Datatype
+
+    let config: (bool, bool, bool) = (false, true, false);
+    let first = config.0;
+    println!("{config:?} - {first}");
+
+
+    let fav_color: (String, String) = (String::from("Yellow"), String::from("Black"));
+    let first = &fav_color.0;
+    println!("{fav_color:?} - {first}");
+
 }
 
 
