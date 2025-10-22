@@ -15,5 +15,32 @@ fn main() {
         &action_hero[5..8]
     };
 
+
     println!("{v}");
+
+    // slice length - Every alphabetic char is of one byte but this excludes for the emojis
+
+    let food = String::from("Pizza");
+    let food_len = &food[0..3];
+    println!("{} - {}", food_len, food_len.len());
+
+    // But this slice in emoji and length of an emoji differs 
+    // Every emoji contains 4 bytes
+
+    let pizza = "🍕";
+    // let pizza_ref = &pizza[0..5]; // This gives panic error as byte index is out of range (emoji contains 4 bytes [0..4])
+    // println!("{}", pizza_ref);
+
+
+    // Syntactic shortcuts
+    let language = String::from("RUST LANGUAGE");
+    println!("{}", &language[5..]); // Starts all over the end of the string
+
+    println!("{}", &language[..5]); // Start from beginning till the range we specify
+
+    println!("{}", &language[..]); // whole string as slice reference (for some reason if required as slice)
+
+    
+    
+
 }
