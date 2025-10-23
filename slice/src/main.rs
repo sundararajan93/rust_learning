@@ -45,6 +45,24 @@ fn main() {
 
     let marks = [45, 87, 94, 23, 45];
 
+    println!("{:?}", &marks[0..3]);
+    println!("{:?}", &marks[3..]);
+    println!("{:?}", &marks[..4]);
+    println!("{:?}", &marks[..]);
 
+
+    let marks_ref = &marks[2..5]; // This is the slice. if you notice we have &[i32] as type but doesn't give no of elements
+    // This is because of the length dynamic nature
+    let marks_ref = &marks; // however this is the reference of the entire array so the type is &[i32; 5] with number of elements
+    println!("{:?}", &marks_ref[2..5]);
+
+    // Rust does not permit mutable slice of string, however it does support mutable slice of array
+    let mut values = [23, 64, 235, 63, 62, 12, 63];
+
+    let my_slice = & mut values[2..5];
+    println!("{:?}", my_slice);
+
+    my_slice[0] = 24;
+    println!("{:?}", my_slice);
 
 }
