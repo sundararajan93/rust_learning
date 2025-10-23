@@ -40,7 +40,11 @@ fn main() {
 
     println!("{}", &language[..]); // whole string as slice reference (for some reason if required as slice)
 
-    
-    
+
+    // Array slices
+
+    let marks = [45, 87, 94, 23, 45];
+
+
 
 }

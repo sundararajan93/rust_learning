@@ -217,4 +217,7 @@ pub fn data_types_fun(){
 
     let numbers: std::ops::Range<i32> = 1..5;
     println!("{numbers:?}");
+
+
+    let test = 245;
 }
