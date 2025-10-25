@@ -1,3 +1,5 @@
+use std::path::PrefixComponent;
+
 fn main() {
     // Slice is reference for the sequence of 
     let language = String::from("RUST LANGUAGE");
@@ -59,10 +61,21 @@ fn main() {
     // Rust does not permit mutable slice of string, however it does support mutable slice of array
     let mut values = [23, 64, 235, 63, 62, 12, 63];
 
-    let my_slice = & mut values[2..5];
+    let my_slice = &mut values[2..5];
     println!("{:?}", my_slice);
 
     my_slice[0] = 24;
     println!("{:?}", my_slice);
 
+
+    let mut sample_array = [25, 65, 47];
+    sample_array[1] = 82;
+    println!("{:?}", sample_array); // In this example we directly mutate the value and replace
+    // But with Reference we caould slice and borrow the value to change 
+
+    let sample_array_ref = &mut sample_array[..];
+    println!("{:?}", sample_array_ref);
+    sample_array_ref[1] = 57;
+    println!("{:?}", sample_array_ref);
+    
 }
