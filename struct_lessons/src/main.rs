@@ -182,9 +182,77 @@ let lambo: Car = Car {
     name: String::from("lambohini"),
     color: ferrari.color.clone(),
     ..ferrari
+}; // This feature is helpful to copy multiple fields and since String has only move method to avoid messing with ownership we shall use .clone()
+
+
+// 1. passing struct as parameter to function
+// Passing struct instance as an argument to function would get the properties of them 
+// but the ownership changes to function scope from instance
+
+let baleno = Car {
+    name: String::from("Baleno"),
+    color: String::from("Imperial blue"),
+    price: 8.99,
 };
 
-// This feature is helpful to copy multiple fields and since String has only move method to avoid messing with ownership we shall use .clone()
+fn properties_of_car(car: Car){
+    println!("1. NAME - {}\nCOLOR - {}\nPRICE - {}", car.name, car.color, car.price);
+}
 
+properties_of_car(baleno); // But this would change the ownership from baleno to properties_of_car and ends once the function ends
+// println!("{}", baleno.color); // this would throw error as the ownership is moved
+
+// 2. Mutable parameter
+let baleno = Car {
+    name: String::from("Baleno"),
+    color: String::from("Imperial blue"),
+    price: 8.99,
+};
+
+fn properties_of_car_mutable(mut car: Car) {
+    println!("2. Price of car {} is {}", car.name, car.price);
+    car.price = 9.98;
+    println!("2. Increased price {}", car.price);
+}
+
+
+// In the above example we are mutating the car parameter so we just transfer the ownership and make it mutable
+println!("2. {}", baleno.price);
+
+properties_of_car_mutable(baleno); // the values would be changed along with ownership and soon the values goes out of scop
+// println!("{}", baleno.price); // Though the value has been changed the variable out of scope as the ownership changed to function
+
+
+// 3. Reference the parameter
+// In this example we are passing the parameter as reference
+// Thus the ownership is borrowed but the real ownership stayed with the instance baleno
+let baleno = Car {
+    name: String::from("Baleno"),
+    color: String::from("Imperial blue"),
+    price: 8.99,
+};
+
+fn properties_of_car_reference(car: &Car) {
+    println!("3. Price of car {} is {}", car.name, car.price);
+}
+
+properties_of_car_reference(&baleno); // This just response the reference 
+println!("3. Price of car {} is {}", baleno.name, baleno.price); // So the original ownership hasn't gone
+
+// 4. Mutable reference
+let mut baleno = Car {
+    name: String::from("Baleno"),
+    color: String::from("Imperial blue"),
+    price: 8.99,
+};
+
+fn properties_of_car_mut_ref(car: &mut Car) {
+    println!("4. Price of car {} is {}", car.name, car.price);
+    car.price = 9.98;
+    println!("4. Increased price {}", car.price);
+}
+
+properties_of_car_mut_ref(&mut baleno);
+println!("4. {} is still valid with {{baleno.price}}", baleno.price);
 
 }
