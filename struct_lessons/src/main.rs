@@ -1,5 +1,5 @@
 // Module level struct
-
+#[derive(Debug)]
 struct Car {
     name: String,
     color: String,
@@ -254,5 +254,16 @@ fn properties_of_car_mut_ref(car: &mut Car) {
 
 properties_of_car_mut_ref(&mut baleno);
 println!("4. {} is still valid with {{baleno.price}}", baleno.price);
+
+
+// Once we derived debug trait above the struct we shall use debug interpolation in rust
+let venue: Car = Car {
+    name: String::from("Venue"),
+    color: String::from("Imperial Blue"),
+    price: 12.3,
+};
+
+println!("{:?}", venue);
+println!("{:#?}", venue);
 
 }
