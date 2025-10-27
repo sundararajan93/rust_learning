@@ -7,7 +7,7 @@ struct Car {
 }
 
 // Struct for Employee
-
+#[derive(Debug)]
 struct Employee {
     name: String,
     id: i128,
@@ -15,6 +15,44 @@ struct Employee {
     is_in_notice_period: bool,
 }
 
+impl Employee {
+
+    // Using Immutable value (pass by value) , Ownership moves to show_all() from employee1
+    // This can also be written as show_all(self: Self) or show_all(self: Employee). every syntax is same
+    fn show_all(self) {
+        println!("{:#?}", self);
+    }
+
+    // Using Mutable value (pass by mutable value), ownership moves to change_notice() but the value is changed
+    // This can also be written as change_notice(mut self: Self) or change_notice(mut self: Employee)
+
+    fn change_notice(mut self) {
+        println!("{:#?}", self);
+        self.is_in_notice_period = true;
+        println!("{:#?}", self);
+
+    }
+
+    // Using Immutable reference to struct (No ownership movement just borrowing the reference)
+    // can be written as &self or self: &Self or self: &Employee
+    fn show_name(self: &Self) {
+        println!("{}", self.name);
+    }
+
+    // using Mutable reference to struct (No ownership movement but making modification to struct data)
+    // can be written as &mut self or self: &mut Self or self: &mut Employee
+    fn promote_employee(self: &mut Self){
+        println!("{}", self.role);
+        self.role = String::from("Development Engineer 5");
+    }    
+
+
+    // method with additional parameters or arguments
+    fn change_role(&mut self, rolename: String){
+        self.role = rolename;
+        println!("New Role - {}", self.role);
+    }
+}
 
 
 
@@ -265,5 +303,34 @@ let venue: Car = Car {
 
 println!("{:?}", venue);
 println!("{:#?}", venue);
+
+
+// Struct Methods
+
+// Employee Creation
+    let name: String = String::from("Sundararajan Thangaraj");
+    let id: i128 = 10560201551;
+    let role = String::from("Development Engineer 4");
+    let is_in_notice_period = false;
+
+    let mut employee_1 = create_employee(name, id, role, is_in_notice_period);
+    
+// Using Immutable value (pass by value) , Ownership moves to show_all() from employee1
+// employee_1.show_all();
+
+// Using mutable value (pass by mutable value), Changes value but still moves ownership
+// employee_1.change_notice(); // This will also change the ownership from employee1 to the method so employee1 wouldn't be useful 
+
+// Using Immutable reference to struct (No ownership movement just borrowing the reference)
+employee_1.show_name();
+println!("{}", employee_1.name); // Both are valid as we only borrowed the value using reference in method
+
+// using Mutable reference to struct (No ownership movement but making modification to struct data)
+employee_1.promote_employee();
+println!("{}", employee_1.role);
+
+// Change role with argument
+employee_1.change_role(String::from("Engineer 5"));
+println!("{:#?}", employee_1);
 
 }
