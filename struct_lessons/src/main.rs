@@ -6,6 +6,14 @@ struct Car {
     price: f64,
 }
 
+#[derive(Debug)]
+struct Player {
+    name: String,
+    height: u32,
+    weight: u32,
+}
+
+
 // Struct for Employee
 #[derive(Debug)]
 struct Employee {
@@ -52,9 +60,17 @@ impl Employee {
         self.role = rolename;
         println!("New Role - {}", self.role);
     }
+
+    // Adding multiple parameters
+    
 }
 
+impl Player{
 
+    fn is_taller_than(&self, other_player: &Self) -> bool {
+        self.height > other_player.height
+    }
+}
 
 fn make_my_car(name: String, color: String, price: f64) -> Car {
     Car {
@@ -332,5 +348,21 @@ println!("{}", employee_1.role);
 // Change role with argument
 employee_1.change_role(String::from("Engineer 5"));
 println!("{:#?}", employee_1);
+
+
+// multiple method
+let player1 = Player {
+    name: String::from("Sundar"),
+    height: 163,
+    weight: 69,
+};
+
+let player2 = Player {
+    name: String::from("Rocky"),
+    height: 179,
+    weight: 80,
+};
+
+println!("{} is taller than {} - {}",player1.name, player2.name, player1.is_taller_than(&player2));
 
 }
