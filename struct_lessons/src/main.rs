@@ -66,6 +66,13 @@ impl Employee {
 }
 
 impl Player{
+    fn new(name: String, height: u32, weight: u32) -> Self{
+        Self {
+            name,
+            height,
+            weight,
+        }
+    }
 
     fn is_taller_than(&self, other_player: &Self) -> bool {
         self.height > other_player.height
@@ -364,5 +371,10 @@ let player2 = Player {
 };
 
 println!("{} is taller than {} - {}",player1.name, player2.name, player1.is_taller_than(&player2));
+
+// Creating player with Construct Associate function
+
+let player3 = Player::new(String::from("Jackie"), 5, 89);
+println!("{player3:#?}")
 
 }
