@@ -1,5 +1,25 @@
 // Module level struct
 #[derive(Debug)]
+struct Person {
+    name: String,
+    age: u32,
+}
+
+impl Person {
+    fn is_older_than(&self, other_person: &Self) -> bool {
+        self.age > other_person.age
+    }
+
+    fn age_difference(&self, other_person: &Self) -> u32 {
+        self.age - other_person.age
+    }
+
+    fn show_info(&self, other_person: &Self) {
+        println!("{}", self.age_difference(other_person));
+    }
+}
+
+#[derive(Debug)]
 struct Car {
     name: String,
     color: String,
@@ -375,6 +395,25 @@ println!("{} is taller than {} - {}",player1.name, player2.name, player1.is_tall
 // Creating player with Construct Associate function
 
 let player3 = Player::new(String::from("Jackie"), 5, 89);
-println!("{player3:#?}")
+println!("{player3:#?}");
+
+
+let person1 = Person {
+    name: String::from("Sundar"),
+    age: 32,
+};
+
+let person2 = Person {
+    name: String::from("Karthik"),
+    age: 30,
+};
+
+// Multiple parameters
+println!("{}",person1.is_older_than(&person2));
+
+// println!("{}", person1.age_difference(&person2));
+
+// Calling a method from another method
+person1.show_info(&person2);
 
 }
