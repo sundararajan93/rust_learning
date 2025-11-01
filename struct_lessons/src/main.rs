@@ -130,6 +130,13 @@ impl Player{
     }
 }
 
+
+// Tuple Struct
+
+struct PointerPosition(i32, i32);
+struct GeoLocation(i32, i32);
+
+
 fn make_my_car(name: String, color: String, price: f64) -> Car {
     Car {
         name: name,
@@ -468,5 +475,39 @@ web_server_instance.
 println!("{:#?}", web_server_instance.get_instance_info());
 
 
+// Tuple Struct variable
+let mouse_pointer: PointerPosition = PointerPosition(-56, 68);
+println!("Moving the mouse pointer to {},{}", mouse_pointer.0, mouse_pointer.1);
+
+
+let house_coordinates: GeoLocation = GeoLocation(450, 209);
+println!("My House Coordinates {},{}", house_coordinates.0, house_coordinates.1);
+
+// // Note this can be done by tuple too but there is a logic gap when we use tuple
+
+// let mouse_pointer = (-56, 68);
+// let house_coordinates = (450, 209);
+
+// // I'm using a function to move cursor to mouse_pointer coordinates
+// fn move_my_mouse(coordinates: (i32, i32)) {
+//     println!("My Mouse pointer moved to {},{}", coordinates.0, coordinates.1);
+// }
+
+// // while passing it works fine
+// move_my_mouse(mouse_pointer);
+
+// // But logically this function works with any tuple with the length
+// move_my_mouse(house_coordinates); // This doesn't have any error technically so compiler allows it but its logically wrong
+
+
+// // To avoid this situation we are using Tuple Struct
+
+fn move_my_mouse(coordinates: PointerPosition) {
+    println!("My Mouse pointer moved to {},{}", coordinates.0, coordinates.1);
+
+}
+
+move_my_mouse(mouse_pointer); // This works same but magic happens when you declare another struct or tuple
+// move_my_mouse(house_coordinates); // Compiler warns about it as the type is PointerPosition we are passing a variable with struct GeoLocation
 
 }
