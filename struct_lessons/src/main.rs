@@ -137,6 +137,17 @@ struct PointerPosition(i32, i32);
 struct GeoLocation(i32, i32);
 
 
+// Unit-Like struct
+#[derive(Debug)]
+struct Empty;
+
+// we can even create methods for the unit-like struct
+impl Empty {
+    fn info(&self){
+        println!("{:#?} - Empty Struct", self);
+    }
+}
+
 fn make_my_car(name: String, color: String, price: f64) -> Car {
     Car {
         name: name,
@@ -509,5 +520,11 @@ fn move_my_mouse(coordinates: PointerPosition) {
 
 move_my_mouse(mouse_pointer); // This works same but magic happens when you declare another struct or tuple
 // move_my_mouse(house_coordinates); // Compiler warns about it as the type is PointerPosition we are passing a variable with struct GeoLocation
+
+
+// Instantiating Empty
+let my_empty_struct: Empty = Empty;
+// We can even have methods for it.
+my_empty_struct.info();
 
 }
