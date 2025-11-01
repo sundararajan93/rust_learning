@@ -1,5 +1,36 @@
 // Module level struct
 #[derive(Debug)]
+struct Instance {
+    name: String,
+    vcpu: u32,
+    hdd: u32,
+}
+
+impl Instance {
+    fn new(name: String, vcpu: u32, hdd: u32) -> Self {
+        Self {
+            name,
+            vcpu,
+            hdd,
+        }
+    }
+    
+    fn get_instance_info(&self) -> &Self {
+        self
+    } 
+
+    fn upgrade_cpu(self: &mut Self) -> &mut Self {
+        self.vcpu *= 2;
+        self
+    }
+
+    fn upgrade_hdd(self: &mut Self) -> &mut Self {
+        self.hdd *= 2;
+        self
+    }
+}
+
+#[derive(Debug)]
 struct Person {
     name: String,
     age: u32,
@@ -415,5 +446,27 @@ println!("{}",person1.is_older_than(&person2));
 
 // Calling a method from another method
 person1.show_info(&person2);
+
+
+// Chainging methods with Building pattern
+
+let mut web_server_instance = Instance::new(String::from("Web Server Instance"), 2, 256);
+println!("{:#?}", web_server_instance.get_instance_info());
+
+println!("Upgrading {}", web_server_instance.name);
+
+web_server_instance.
+                    upgrade_cpu().
+                    upgrade_hdd();
+
+println!("{:#?}", web_server_instance.get_instance_info());
+
+web_server_instance.
+                    upgrade_cpu().
+                    upgrade_hdd();
+
+println!("{:#?}", web_server_instance.get_instance_info());
+
+
 
 }
