@@ -1,3 +1,19 @@
+#[derive(Debug)]
+enum InstanceStatus {
+    Connected,
+    Disconnected,
+    Error(String),
+}
+
+#[derive(Debug)]
+struct Instance {
+    name: String,
+    cpu: u32,
+    hdd: u32,
+    status: InstanceStatus,
+}
+
+
 // enum is finite set of possible values
 #[derive(Debug)]
 enum CardSuit {
@@ -53,4 +69,13 @@ fn main() {
     let payment_type = PaymentmethodType::Paypal(String::from("sundar@rustmail.com"), String::from("Mydummypasswd"));
     println!("{:?}", payment_type);
 
+
+    let my_web_server = Instance {
+        name: String::from("Web Server"),
+        cpu: 2,
+        hdd: 512,
+        status: InstanceStatus::Connected,
+    };
+
+    println!("{:#?}", my_web_server);
 }
