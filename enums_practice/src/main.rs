@@ -1,3 +1,34 @@
+// Enum nested inside enum
+#[derive(Debug)]
+enum Environments {
+    Dev,
+    Uat,
+    Prod,
+}
+
+#[derive(Debug)]
+enum Deploy {
+    Connect(Environments),
+    Error(String),
+}
+
+// Enum nested inside struct
+
+#[derive(Debug)]
+enum Status {
+    OK,
+    NotFound,
+    TimedOut,
+}
+
+#[derive(Debug)]
+struct Request {
+    url: String,
+    user: String,
+    passwd: String,
+    status: Status,
+}
+
 #[derive(Debug)]
 enum InstanceStatus {
     Connected,
@@ -78,4 +109,21 @@ fn main() {
     };
 
     println!("{:#?}", my_web_server);
+
+
+    // enum inside enum
+
+    let deployment = Deploy::Connect(Environments::Dev);
+    println!("{:#?}", deployment);
+
+    // Enum inside struct
+
+    let request = Request {
+        url: String::from("https://example.com/login"),
+        user: String::from("testuser"),
+        passwd: String::from("testpassword@123"),
+        status: Status::OK,
+    };
+
+    println!("{:?}", request);
 }
