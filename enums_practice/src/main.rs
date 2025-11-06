@@ -1,3 +1,21 @@
+// Enum aligned with match
+#[derive(Debug)]
+enum OperatingSystem {
+    Windows,
+    Macos,
+    Linux,
+}
+
+// fn to match 
+
+fn years_since_release(os: &OperatingSystem) -> u32 {
+    match os {
+        OperatingSystem::Windows => 39,
+        OperatingSystem::Macos => 23,
+        OperatingSystem::Linux => 34,
+    }
+}
+
 // Enum nested inside enum
 #[derive(Debug)]
 enum Environments {
@@ -126,4 +144,9 @@ fn main() {
     };
 
     println!("{:?}", request);
+    let os = OperatingSystem::Linux;
+    let my_pc = years_since_release(&os);
+    println!("{:?} released since {} years", os, my_pc);
+
+
 }
