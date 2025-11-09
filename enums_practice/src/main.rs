@@ -1,3 +1,26 @@
+// Enum with match passing associate value
+enum LaundryCloth {
+    Cold,
+    Hot { temperature: u32},
+    Delicate(String),
+}
+
+fn wash_cloth(state: LaundryCloth) {
+    match state {
+        LaundryCloth::Cold => println!("Cold Wash"),
+        LaundryCloth::Hot { temperature} => println!("cloth washed in {temperature} celcius"),
+        LaundryCloth::Delicate((material)) => println!("{material} is washing"),
+    }
+    
+}
+
+// Defining methods on enum 
+
+// Enum matching multiple values
+
+// enum matching exact values
+
+
 // Enum aligned with match
 #[derive(Debug)]
 enum OperatingSystem {
@@ -148,5 +171,15 @@ fn main() {
     let my_pc = years_since_release(&os);
     println!("{:?} released since {} years", os, my_pc);
 
+    // Associate value match in enum
+
+    let cloth = LaundryCloth::Cold;
+    wash_cloth(cloth);
+
+    let cloth = LaundryCloth::Hot { temperature: 100 };
+    wash_cloth(cloth);
+
+    let cloth = LaundryCloth::Delicate(String::from("Satin"));
+    wash_cloth(cloth);
 
 }
