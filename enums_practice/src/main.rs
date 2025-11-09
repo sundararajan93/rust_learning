@@ -15,8 +15,38 @@ fn wash_cloth(state: LaundryCloth) {
 }
 
 // Defining methods on enum 
+// we can do the same with method
+impl LaundryCloth {
+    fn wash_cloth_method(&self) {
+        match self {
+        LaundryCloth::Cold => println!("Cold Wash"),
+        LaundryCloth::Hot { temperature} => println!("cloth washed in {temperature} celcius"),
+        LaundryCloth::Delicate((material)) => println!("{material} is washing"),
+        }
+    }
+}
 
 // Enum matching multiple values
+enum OnlineOrderStatus {
+    Ordered,
+    Packed,
+    Shipped,
+    Delivered,
+}
+
+impl OnlineOrderStatus {
+    fn check_status(&self) {
+        match self {
+            OnlineOrderStatus::Delivered => {
+                println!("Shipping delivered");
+            }
+            OnlineOrderStatus::Ordered | OnlineOrderStatus::Packed | OnlineOrderStatus:: Shipped => {
+                println!("Order is getting ready to deliver");
+            }
+        }
+    }
+}
+
 
 // enum matching exact values
 
@@ -182,4 +212,25 @@ fn main() {
     let cloth = LaundryCloth::Delicate(String::from("Satin"));
     wash_cloth(cloth);
 
+    // Do same with method in enum
+    let cloth = LaundryCloth::Cold;
+    cloth.wash_cloth_method();
+
+    let cloth = LaundryCloth::Hot { temperature: 90 };
+    cloth.wash_cloth_method();
+
+    let cloth = LaundryCloth::Delicate(String::from("Cotton"));
+    cloth.wash_cloth_method();
+
+
+    // Enum for multiple match
+
+    let order = OnlineOrderStatus::Ordered;
+    order.check_status();
+
+    let order = OnlineOrderStatus::Shipped;
+    order.check_status();
+
+    let order = OnlineOrderStatus::Delivered;
+    order.check_status();
 }
