@@ -49,7 +49,26 @@ impl OnlineOrderStatus {
 
 
 // enum matching exact values
+enum Milk{
+    LowFat(u32),
+    WholeFat,
+}
 
+impl Milk {
+    fn check_fat(&self) {
+        match self {
+            Milk::LowFat(2) => {
+                println!("2% LowFat milk");
+            }
+            Milk::LowFat(percent) => {
+                println!("You got lowfat milk");
+            }
+            Milk::WholeFat => {
+                println!("You've got WholeFat milk");
+            }
+        }
+    }
+}
 
 // Enum aligned with match
 #[derive(Debug)]
@@ -233,4 +252,10 @@ fn main() {
 
     let order = OnlineOrderStatus::Delivered;
     order.check_status();
+
+    // Exact match for enum
+
+    Milk::WholeFat.check_fat();
+    Milk::LowFat(2).check_fat();
+    Milk::LowFat(5).check_fat();
 }
