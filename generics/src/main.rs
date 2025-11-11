@@ -24,6 +24,26 @@ fn identity<T>(value: T) -> T {
 // This will accept any type of value to be used as value parameter while invoking them
 // Note that T is common community convention- we can use any Name there for the generic
 
+
+//Multiple Generics
+// function may have multiple generics
+fn make_tuple(first: i32, second: f64) -> (i32, f64) {
+    (first, second)
+}// This function creates tuple with two elements of i32 first and f64 type as second element
+
+// lets recreate it with Generic of first element
+fn make_tuple_with_generic<T>(first: T, second: f64) -> (T, f64) {
+    (first, second)
+} // This function accepts any type of data in first parameter as it is T generic type. 
+// So we specify T whereever we use first parameter also in return 
+
+// Make both the parameters generic type
+fn make_tuple_both_generic<T, U>(first: T, second: U) -> (T, U) {
+    (first, second)
+}// We cant specify T for both the genric as rust will not able to allow as T can be string at first and i32 at second parameter
+// So we must use the second common community convention letter U. 
+// This covers both elements in any type 
+
 fn main() {
     println!("{}", identity(5));
     println!("{}", identity(true));
@@ -36,6 +56,9 @@ fn main() {
     // using turbofish operator like below we could annotate our desired type as well
     println!("{}", identity::<i8>(4)); 
 
+    // Multiple Generic function call
+    let tuple = make_tuple_both_generic(31, String::from("Hello"));
+    println!("{:?}", tuple);
 }
 
 #[derive(Debug)]
