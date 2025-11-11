@@ -95,6 +95,19 @@ fn main() {
     let number_of_items = special_chest.count_number_of_treasure(); // As we specified impl with <[&str; 4]> even though if we have array with number of element other than 4 we will not be able to use this method
     println!("{number_of_items}"); // should return 4 
 
+    // using Enum generic
+    // In this example we are creating variable with Associat type String which works fine
+    let error_code = StatusMessage::Error(String::from("Unable to connect"));
+    println!("{error_code:?}");
+
+    // We specify the same Error variant with 404 (i32) which works fine as well
+    let error_not_found = StatusMessage::Error(404);
+    println!("{error_not_found:?}");
+
+    // Suppose we want to have the variant without Type we still get error
+    // let success = StatusMessage::Success;
+    let success: StatusMessage<bool> = StatusMessage::Success;
+    println!("{success:?}")
 
 }
 
@@ -125,3 +138,12 @@ impl TreasureChest<[&str; 4]> {
         self.treasure.len()
     }
 }
+
+// Generic in enum
+
+#[derive(Debug)]
+enum StatusMessage<T> {
+    Success,
+    Error(T),
+}
+
