@@ -59,8 +59,37 @@ fn main() {
     // Multiple Generic function call
     let tuple = make_tuple_both_generic(31, String::from("Hello"));
     println!("{:?}", tuple);
+
+    // Lets use the generic to instantiate the variable with Dynamic type value for treasure
+    let gold_chest = TreasureChest {
+        captain: String::from("Captain Cool"),
+        treasure: "Gold", // using &str in generic field
+    };
+    println!("{gold_chest:#?}");
+
+    let silver_chest = TreasureChest {
+        captain: String::from("Captain Jacksparrow"),
+        treasure: false, // Using boolean Type in genric field
+    };
+    println!("{silver_chest:#?}");
+
+    let special_chest = TreasureChest {
+        captain: String::from("Bloodline"),
+        treasure: ["Gold", "Silver", "Platinum", "Diamonds"], // Using array type of &str in all the elements in place of generic field
+    };
+    println!("{special_chest:#?}");
+
 }
 
 #[derive(Debug)]
 struct MyStructExample {
+}
+
+// Generics in struct
+// We could use generic in struct for a field which we doesn't know the type in advance
+
+#[derive(Debug)]
+struct TreasureChest<T> {
+    captain: String,
+    treasure: T,
 }
