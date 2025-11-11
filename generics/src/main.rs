@@ -79,6 +79,23 @@ fn main() {
     };
     println!("{special_chest:#?}");
 
+
+    // use impl method with String Type
+    let mut string_chest = TreasureChest {
+        captain: String::from("Captain America"),
+        treasure: String::from("   Some minarals   "),
+    };
+    println!("{string_chest:#?}");
+    string_chest.clean_treasure();
+    println!("{string_chest:#?}");
+    // If we notice the string will be trimmed and cleaned with passing the clean_treasure() method
+    // however this method would through error when passing with other generic types
+
+    println!("{special_chest:#?}");
+    let number_of_items = special_chest.count_number_of_treasure(); // As we specified impl with <[&str; 4]> even though if we have array with number of element other than 4 we will not be able to use this method
+    println!("{number_of_items}"); // should return 4 
+
+
 }
 
 #[derive(Debug)]
@@ -92,4 +109,19 @@ struct MyStructExample {
 struct TreasureChest<T> {
     captain: String,
     treasure: T,
+}
+
+// We specify this method with generic for type String alone
+// This means this impl is specifically for String datatype
+impl TreasureChest<String> {
+    fn clean_treasure(&mut self){
+        self.treasure = self.treasure.trim().to_string();
+    }
+}
+
+
+impl TreasureChest<[&str; 4]> {
+    fn count_number_of_treasure(&self) -> usize{
+        self.treasure.len()
+    }
 }
