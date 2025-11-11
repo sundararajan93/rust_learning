@@ -34,8 +34,7 @@ fn main() {
     //TurboFish Operator - ::<i32>
     // we know the identity accepts any value but i need i8 type how can I specify
     // using turbofish operator like below we could annotate our desired type as well
-
-    println!("{}", identity::<i8>(4));
+    println!("{}", identity::<i8>(4)); 
 
 }
 
