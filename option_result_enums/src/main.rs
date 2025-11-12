@@ -15,4 +15,51 @@ fn main() {
     let b = Option::<i32>::Some(200);
     println!("i32 specified explicitly with Turbofish Operator -  Option::<i32::Some(i32 value) - {:?}", b);
 
+
+    // Practical use of Option Enum 
+    // lets say we have Array 
+
+    let heros_list = [
+        String::from("Iron Man"),
+        String::from("Captain America"),
+        String::from("Hulk")
+    ];
+
+    // If we wan to retrieve the elements of arry we should use index position like below
+
+    println!("{}", heros_list[2]);
+    
+    // But below line gives panic error as there isn't index position 20.
+    // println!("{}", heros_list[20]);
+
+    /*  
+        error: this operation will panic at runtime
+      --> src\main.rs:34:20
+       |
+    34 |     println!("{}", heros_list[20]);
+       |                    ^^^^^^^^^^^^^^ index out of bounds: the length is 3 but the index is 20
+       |
+       = note: `#[deny(unconditional_panic)]` on by default
+
+    error: could not compile `option_result_enums` (bin "option_result_enums") due to 1 previous error
+
+    This can't be identified during development phase but only while in runtime we will get the error
+    
+    */
+    
+
+    // To address this issue we shall use get method which has enum of Option
+
+    let iron_man = heros_list.get(0);
+    // This returns the index position zero 
+    // The enum type this get method have is Option and it will give Some variant if it found some value in that index position
+    println!("Index Found - {:?}", iron_man);
+
+    // Whereas if we do the same index out of bound like 20 
+    let unknown_hero = heros_list.get(20); 
+    // Rust Option enum which is bound to get method would check for None variant 
+    // This eliminate panic error and gracefully return None
+
+    println!("Index not found - {:?}", unknown_hero);
+
 }
