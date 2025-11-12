@@ -12,5 +12,7 @@ fn main() {
     println!("{:?}", b);
 
     // We can use turbofish Operator to specify the type explicitly for None or Some(T)
+    let b = Option::<i32>::Some(200);
+    println!("i32 specified explicitly with Turbofish Operator -  Option::<i32::Some(i32 value) - {:?}", b);
 
 }
