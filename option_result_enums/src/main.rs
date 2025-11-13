@@ -62,4 +62,14 @@ fn main() {
 
     println!("Index not found - {:?}", unknown_hero);
 
+    // Unwrap the actual value
+    let valid_hero = iron_man.unwrap();
+    println!("{valid_hero}");
+
+    // Problem with unwrap is it would run into problem when it deals with invalid value 
+
+    // println!("{}", unknown_hero.unwrap()) ; // Panic error
+
+    
+
 }
