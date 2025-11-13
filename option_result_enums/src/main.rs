@@ -54,13 +54,15 @@ fn main() {
     // This returns the index position zero 
     // The enum type this get method have is Option and it will give Some variant if it found some value in that index position
     println!("Index Found - {:?}", iron_man);
+    println!("expect method {}", iron_man.expect("Unable to retrieve the value"));
 
     // Whereas if we do the same index out of bound like 20 
     let unknown_hero = heros_list.get(20); 
     // Rust Option enum which is bound to get method would check for None variant 
     // This eliminate panic error and gracefully return None
 
-    println!("Index not found - {:?}", unknown_hero);
+    // println!("Index not found - {:?}", unknown_hero);
+    // println!("expect method {}", unknown_hero.expect("Unable to retrieve the value"));
 
     // Unwrap the actual value
     let valid_hero = iron_man.unwrap();
@@ -71,5 +73,32 @@ fn main() {
     // println!("{}", unknown_hero.unwrap()) ; // Panic error
 
     
+    // Match keyword solution
+    println!("Using Match with Option Enum ");
+    match iron_man {
+        Option::Some(hero) => println!("{hero}"),
+        Option::None => println!("No hero found"),
+    }
 
+    check_hero_exist(iron_man);
+
+
+    match unknown_hero {
+        Option::Some(hero) => println!("{hero}"),
+        Option::None => println!("No hero found"),    
+    }
+
+    check_hero_exist(unknown_hero);
+    // But in this case we require two match statement for checking both valid and invalid syntax
+
+}
+
+// Function with match statemetn
+
+fn check_hero_exist(hero: Option<&String>) {
+    match hero {
+        Option::Some(hero) => println!("Matches - {hero}"),
+        Option::None => println!("Not Matching - No hero found"),
+    }
+       
 }
