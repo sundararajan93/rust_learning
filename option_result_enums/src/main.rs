@@ -91,7 +91,29 @@ fn main() {
     check_hero_exist(unknown_hero);
     // But in this case we require two match statement for checking both valid and invalid syntax
 
-}
+    let users_in_ldap = [
+        String::from("sundar"),
+        String::from("vinoth"),
+        String::from("mani")
+    ];
+
+    let users_in_db = [
+        String::from("sundar"),
+        String::from("vinoth"),
+        String::from("mani"),
+        String::from("Gowtham")
+    ];
+
+    let user_to_check = "sundar";
+
+    let is_exist_in_ldap = users_in_ldap.contains(&user_to_check.to_string());
+    let is_exist_in_db = users_in_db.contains(&user_to_check.to_string());
+    println!("LDAP - {}\nDB - {}", is_exist_in_ldap, is_exist_in_db);
+
+    let user_status = is_user_synced(is_exist_in_ldap, is_exist_in_db);
+    println!("user existence status - {:?}", user_status);
+
+}   
 
 // Function with match statemetn
 
@@ -101,4 +123,16 @@ fn check_hero_exist(hero: Option<&String>) {
         Option::None => println!("Not Matching - No hero found"),
     }
        
+}
+
+fn is_user_synced(is_exist_in_ldap: bool, is_exist_in_db: bool) -> Option<bool> {
+
+    if is_exist_in_ldap && is_exist_in_db {
+        Option::Some(true)
+    } else if is_exist_in_db {
+        Option::Some(false)
+    } else {
+        Option::None
+    }
+
 }
