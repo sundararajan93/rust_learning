@@ -120,6 +120,14 @@ fn main() {
     let user_status = is_user_synced(is_exist_in_ldap, is_exist_in_db);
     println!("user existence status - {:?}", user_status);
 
+    // unwrap_or
+    // similar to unwrap but provides a fall back value. unwrap the value or provide the fallback value
+    let value = Some(78);
+    let unknown_value: Option<i32> = None;
+    println!("{}", value.unwrap_or(0));
+    println!("{}", unknown_value.unwrap_or(0));
+
+
 }   
 
 // Function with match statemetn
