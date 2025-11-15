@@ -123,11 +123,21 @@ fn main() {
     // unwrap_or
     // similar to unwrap but provides a fall back value. unwrap the value or provide the fallback value
     let value = Some(78);
-    let unknown_value: Option<i32> = None;
+    let unknown_value: Option<i32> = None; // Option type can be anything So that we can use that type to set fallback value    
     println!("{}", value.unwrap_or(0));
     println!("{}", unknown_value.unwrap_or(0));
 
 
+    // Using our own MyOptions enum
+    let value = MyOptions::Some(15);
+    println!("{}", value.unwrap());
+
+    let missing_value = MyOptions::None;
+    // println!("{}", missing_value.unwrap());
+
+
+    // Using unwrap_or
+    println!("{}", missing_value.unwrap_or(0)); // Fallback value is 0
 }   
 
 // Function with match statemetn
@@ -148,6 +158,31 @@ fn is_user_synced(is_exist_in_ldap: bool, is_exist_in_db: bool) -> Option<bool> 
         Option::Some(false)
     } else {
         Option::None
+    }
+
+}
+
+// Lets create Similar Option enum our own to understand things
+
+enum MyOptions {
+    Some(i32),
+    None
+}
+
+impl MyOptions {
+
+    fn unwrap(self) -> i32 {
+        match self {
+            MyOptions::Some(value) => value,
+            MyOptions::None => panic!("OH OH WE GOT PANIC... Program Interrupted\n\n")
+        }
+    }
+
+    fn unwrap_or(self, fallback_value: i32) -> i32 {
+        match self {
+            MyOptions::Some(value) => value,
+            MyOptions::None => fallback_value
+        }
     }
 
 }
