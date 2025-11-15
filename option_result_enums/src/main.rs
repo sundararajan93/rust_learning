@@ -88,6 +88,13 @@ fn main() {
         Option::None => println!("No hero found"),    
     }
 
+    // Prelude - Option is alread loaded so Option::Some can be written as Some directly, 
+    // check below which is right code and doesn't have any difference from other implementation of Option
+    match unknown_hero {
+        Some(hero) => println!("{hero}"),
+        None => println!("No hero found"),
+    }
+
     check_hero_exist(unknown_hero);
     // But in this case we require two match statement for checking both valid and invalid syntax
 
