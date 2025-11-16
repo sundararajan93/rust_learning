@@ -146,6 +146,9 @@ fn main() {
 
     let forbidden_response: Result<i32, i32> = Result::Err(503);
     println!("{:?}", forbidden_response);
+    println!("unwrapped Result - {}", valid_http_response.unwrap());
+    println!("unwrapped Result - {}", forbidden_response.unwrap_or(503));
+
 
 
     // Converting text to number with parse method (Result enum type)
@@ -157,6 +160,25 @@ fn main() {
     let invalid_number_text = "fifty";
     let invalid_in_numbers = invalid_number_text.parse::<i32>();
     println!("{:?}", invalid_in_numbers);
+
+
+    // using the result enum
+    let site = "smartrustt.com".to_string();
+
+    let status_code = site_reachable(site.clone());
+
+    match status_code {
+        Ok(status_code) => println!("{site} is reachable, status code - {status_code}"),
+        Err(message) => print!("{site} is unreachable, Error - {message}"),
+    }
+
+    // while let
+
+    // let mut dishes = ["Chicken", "Fish", "Prawn"];
+
+    // while let Some(dish) = dishes.pop(){
+    //     println!("{dish}");
+    // }
 
 }   
 
@@ -205,4 +227,14 @@ impl MyOptions {
         }
     }
 
+}
+
+// Result as retrun type
+
+fn site_reachable(url: String) -> Result<i32, String> {
+    if url == String::from("smartrust.com") {
+        Result::Ok(200)
+    } else {
+        Result::Err("Something went wrong site unreachable".to_string())
+    }
 }
