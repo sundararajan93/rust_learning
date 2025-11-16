@@ -138,6 +138,26 @@ fn main() {
 
     // Using unwrap_or
     println!("{}", missing_value.unwrap_or(0)); // Fallback value is 0
+
+    //Result enum
+    // Success or Error 
+    let valid_http_response: Result<i32, i32> = Result::Ok(200);
+    println!("{:?}", valid_http_response);
+
+    let forbidden_response: Result<i32, i32> = Result::Err(503);
+    println!("{:?}", forbidden_response);
+
+
+    // Converting text to number with parse method (Result enum type)
+    // Valid number in string slice
+    let fifty_in_words = "50";
+    let fifty_in_numbers = fifty_in_words.parse::<i32>();
+    println!("{:?}", fifty_in_numbers);
+
+    let invalid_number_text = "fifty";
+    let invalid_in_numbers = invalid_number_text.parse::<i32>();
+    println!("{:?}", invalid_in_numbers);
+
 }   
 
 // Function with match statemetn
