@@ -1,3 +1,5 @@
+use std::option;
+
 fn main() {
     // Vectors - Similar to arrya but Subsequent homogeneus data (concequent same type of date) which can grow shrink
     // Difference between array and vector is, we cannot add or remvoe element in array
@@ -61,5 +63,13 @@ fn main() {
 
     let string_slice = &toppings[1..];
     println!("{string_slice:?}");
+
+    // get method 
+
+    let option = toppings.get(60);
+    match option {
+        Some(option) => println!("{option}"),
+        None => println!("No Toppings"),
+    }
 
 }
