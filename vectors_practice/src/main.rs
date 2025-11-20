@@ -90,5 +90,12 @@ fn main() {
     println!("{delicious_toppings:?}");
     // println!("{toppings_reference:?}"); // This wouldn't work as we have both mutable and immutable reference for a vector same time
     // If we create mutable reference it should be the last one. If we create any number of immutable reference that ends when we make one mutable change
+    
 
+    // create a vector
+    let mut name_list = vec![String::from("Sundar"), String::from("Parthi"), String::from("Dhivi")];
+
+    // Replacing value with multiple immutabl reference
+    let another_list = &name_list[2];
+    let name_list_ref = &another_list;
 }
