@@ -72,4 +72,23 @@ fn main() {
         None => println!("No Toppings"),
     }
 
+
+    let mut delicious_toppings = toppings; // The ownership moved to delicious_toppings from toppings
+    //whenever we try to call toppings it would fail 
+
+    // println!("{toppings:?}"); // This would fail as the ownership is moved
+
+    // creating reference for vector
+
+    let toppings_reference = &delicious_toppings[1];
+
+    println!("{delicious_toppings:?}"); // This works as we create only immutable reference for delecious_toppings
+
+    // Lets make modification to delicious toppings
+    delicious_toppings.push(String::from("pepporoni"));
+
+    println!("{delicious_toppings:?}");
+    // println!("{toppings_reference:?}"); // This wouldn't work as we have both mutable and immutable reference for a vector same time
+    // If we create mutable reference it should be the last one. If we create any number of immutable reference that ends when we make one mutable change
+
 }
