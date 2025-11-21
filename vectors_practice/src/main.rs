@@ -98,4 +98,18 @@ fn main() {
     // Replacing value with multiple immutabl reference
     let another_list = &name_list[2];
     let name_list_ref = &another_list;
+
+    // With capcity
+    let mut product_list:Vec<&str> = Vec::with_capacity(4);
+    println!("Length - {} Capacity - {}", product_list.len(), product_list.capacity());
+    product_list.push("Product1");
+    product_list.push("Product2");
+    product_list.push("Product3");
+    product_list.push("Product4");
+    println!("Length - {} Capacity - {}", product_list.len(), product_list.capacity());
+
+    product_list.push("Product5");
+    println!("Length - {} Capacity - {}", product_list.len(), product_list.capacity());
+
+
 }
