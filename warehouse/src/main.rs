@@ -19,12 +19,20 @@ mod inventory {
     }
 
     fn talk_to_sales() {
-        println!("{MANAGER} is accessible here inside the module")
+        println!("{MANAGER} is accessible here inside the module");
     }
 
 }
 
+mod store {
+    pub const MANAGER: &str = "Lois";
+}
+
 fn main() {
     // To access the variable or constant from module to anywhere
-    println!("{} Manager for inventory", inventory::Manager);
+    // But the module inventory should have the component specified with pub keyword
+    println!("{} is the Manager for inventory", inventory::MANAGER);
+
+    // We could have same name of construct in different modules
+    println!("{} is the Manager for store", store::MANAGER);
 }
