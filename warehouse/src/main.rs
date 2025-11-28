@@ -1,3 +1,9 @@
+// To add module which represented as file
+mod store;
+
+// Adding moudle godown which is represented as directory
+mod godown;
+
 // To create module we shall use mod segment
 mod inventory {
 
@@ -24,9 +30,6 @@ mod inventory {
 
 }
 
-mod store {
-    pub const MANAGER: &str = "Lois";
-}
 
 fn main() {
     // To access the variable or constant from module to anywhere
@@ -35,4 +38,7 @@ fn main() {
 
     // We could have same name of construct in different modules
     println!("{} is the Manager for store", store::MANAGER);
+
+    // We could use the module as folder
+    println!("{} is the Manager for godown", godown::MANAGER );
 }
