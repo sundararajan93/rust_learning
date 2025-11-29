@@ -41,4 +41,36 @@ fn main() {
 
     // We could use the module as folder
     println!("{} is the Manager for godown", godown::MANAGER );
+
+    // Creating struct from the module godown
+
+    // let stock = Inventory {
+    //     name: String::from("Ladder"),
+    //     quantity: 4,
+    //     category: godown::Category::Ladder,
+    // };
+
+    // Though we have Inventory struct defined public the fields inside them must be explicitly defined pub to use them
+    // Or else by default the name fields are private
+    // example
+    /*
+    pub struct Inventory {
+        pub name: String,
+        pub quantity: String,
+        pub category: godown::Category::Ladder
+    
+    }
+    
+    */
+    
+    let hammer = godown::Inventory::new(
+        String::from("10 ft ladder"),
+        9, 
+        godown::Category::Ladder
+    );
+
+    println!("{hammer:#?}");
+
+    println!("{}", godown::parking::SECURITY_GUARD);
+
 }

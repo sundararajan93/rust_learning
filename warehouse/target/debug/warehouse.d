@@ -1,1 +1,1 @@
-C:\Code\rust_learning\warehouse\target\debug\warehouse.exe: C:\Code\rust_learning\warehouse\src\godown\mod.rs C:\Code\rust_learning\warehouse\src\main.rs C:\Code\rust_learning\warehouse\src\store.rs
+C:\Code\rust_learning\warehouse\target\debug\warehouse.exe: C:\Code\rust_learning\warehouse\src\godown\mod.rs C:\Code\rust_learning\warehouse\src\godown\parking.rs C:\Code\rust_learning\warehouse\src\main.rs C:\Code\rust_learning\warehouse\src\store.rs
