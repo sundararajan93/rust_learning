@@ -1,0 +1,1 @@
+C:\Code\rust_learning\modules_examples\target\debug\modules_examples.exe: C:\Code\rust_learning\modules_examples\src\inventory\item.rs C:\Code\rust_learning\modules_examples\src\inventory\mod.rs C:\Code\rust_learning\modules_examples\src\main.rs
