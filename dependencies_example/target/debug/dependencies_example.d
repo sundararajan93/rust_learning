@@ -1,0 +1,1 @@
+C:\Code\rust_learning\dependencies_example\target\debug\dependencies_example.exe: C:\Code\rust_learning\dependencies_example\src\inventory\mod.rs C:\Code\rust_learning\dependencies_example\src\main.rs
