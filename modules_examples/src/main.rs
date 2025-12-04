@@ -13,6 +13,15 @@ use inventory::item::{self, Item};
 // using only till the module
 // use inventory::item;
 
+// alias
+
+// use inventory::MANAGER;
+// use inventory::item::MANAGER; // This line would throw error as the rust cannot have both MANAGER variable for different module
+
+// Here is were the as keyword from alias comes handy
+use inventory::MANAGER as INVENTORY_MANAGER;
+use inventory::item::MANAGER as STORE_MANAGER;
+
 fn main() {
     
     // let item = inventory::Item {
@@ -37,7 +46,7 @@ fn main() {
 
     let pencil = Item::new(String::from("pencil"), 50);
 
-    
+
 
     
 }
