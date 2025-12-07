@@ -2,10 +2,12 @@
 // Generic - Type of the argument/parameter
 // for example
 // below function just simply returns the i32 value that is passed
+/// Identity with return value as i32
 fn identity_i32(value: i32) -> i32 {
     value
 }
 // What if I need the same function which accepts f64 parameter - I just need to create another function
+/// Identity with return value as i64
 fn identity_f64(value: f64) -> f64 {
     value
 }
@@ -13,31 +15,33 @@ fn identity_f64(value: f64) -> f64 {
 // This makes tough time for us to create multiple functions for multiple types
 // But generic solves the problem
 
+/// `identity<T>` which has generic type
+/// Breakdown of the above code
+/// Generic is a place holder for the Type
+/// We specify <T> as a generic type near function name 
+/// We specify the same T to the type of the value 
+/// Finally we returns the same T as return type
+/// This will accept any type of value to be used as value parameter while invoking them
+/// Note that T is common community convention- we can use any Name there for the generic
 fn identity<T>(value: T) -> T {
     value
 }
-// Breakdown of the above code
-// Generic is a place holder for the Type
-// We specify <T> as a generic type near function name 
-// We specify the same T to the type of the value 
-// Finally we returns the same T as return type
-// This will accept any type of value to be used as value parameter while invoking them
-// Note that T is common community convention- we can use any Name there for the generic
 
 
-//Multiple Generics
-// function may have multiple generics
+/// function may have multiple arguments
 fn make_tuple(first: i32, second: f64) -> (i32, f64) {
     (first, second)
 }// This function creates tuple with two elements of i32 first and f64 type as second element
 
 // lets recreate it with Generic of first element
+/// Multiple argument Generics - function may have multiple arg with one generic
 fn make_tuple_with_generic<T>(first: T, second: f64) -> (T, f64) {
     (first, second)
 } // This function accepts any type of data in first parameter as it is T generic type. 
 // So we specify T whereever we use first parameter also in return 
 
 // Make both the parameters generic type
+/// Multiple Generics - function may have multiple generic
 fn make_tuple_both_generic<T, U>(first: T, second: U) -> (T, U) {
     (first, second)
 }// We cant specify T for both the genric as rust will not able to allow as T can be string at first and i32 at second parameter
@@ -111,6 +115,7 @@ fn main() {
 
 }
 
+/// Example Struct
 #[derive(Debug)]
 struct MyStructExample {
 }
@@ -118,6 +123,7 @@ struct MyStructExample {
 // Generics in struct
 // We could use generic in struct for a field which we doesn't know the type in advance
 
+/// Struct with Generic
 #[derive(Debug)]
 struct TreasureChest<T> {
     captain: String,
@@ -132,15 +138,15 @@ impl TreasureChest<String> {
     }
 }
 
-
+/// Specify the generic type in impl
 impl TreasureChest<[&str; 4]> {
     fn count_number_of_treasure(&self) -> usize{
         self.treasure.len()
     }
 }
 
-// Generic in enum
 
+/// Generic in enum 
 #[derive(Debug)]
 enum StatusMessage<T> {
     Success,

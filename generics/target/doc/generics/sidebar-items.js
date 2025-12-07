@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["StatusMessage"],"fn":["identity","identity_f64","identity_i32","main","make_tuple","make_tuple_both_generic","make_tuple_with_generic"],"struct":["MyStructExample","TreasureChest"]};

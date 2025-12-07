@@ -1,0 +1,9 @@
+(function() {
+    var implementors = Object.fromEntries([["generics",[["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.88.0/core/panic/unwind_safe/trait.RefUnwindSafe.html\" title=\"trait core::panic::unwind_safe::RefUnwindSafe\">RefUnwindSafe</a> for <a class=\"struct\" href=\"generics/struct.MyStructExample.html\" title=\"struct generics::MyStructExample\">MyStructExample</a>",1,["generics::MyStructExample"]],["impl&lt;T&gt; <a class=\"trait\" href=\"https://doc.rust-lang.org/1.88.0/core/panic/unwind_safe/trait.RefUnwindSafe.html\" title=\"trait core::panic::unwind_safe::RefUnwindSafe\">RefUnwindSafe</a> for <a class=\"enum\" href=\"generics/enum.StatusMessage.html\" title=\"enum generics::StatusMessage\">StatusMessage</a>&lt;T&gt;<div class=\"where\">where\n    T: <a class=\"trait\" href=\"https://doc.rust-lang.org/1.88.0/core/panic/unwind_safe/trait.RefUnwindSafe.html\" title=\"trait core::panic::unwind_safe::RefUnwindSafe\">RefUnwindSafe</a>,</div>",1,["generics::StatusMessage"]],["impl&lt;T&gt; <a class=\"trait\" href=\"https://doc.rust-lang.org/1.88.0/core/panic/unwind_safe/trait.RefUnwindSafe.html\" title=\"trait core::panic::unwind_safe::RefUnwindSafe\">RefUnwindSafe</a> for <a class=\"struct\" href=\"generics/struct.TreasureChest.html\" title=\"struct generics::TreasureChest\">TreasureChest</a>&lt;T&gt;<div class=\"where\">where\n    T: <a class=\"trait\" href=\"https://doc.rust-lang.org/1.88.0/core/panic/unwind_safe/trait.RefUnwindSafe.html\" title=\"trait core::panic::unwind_safe::RefUnwindSafe\">RefUnwindSafe</a>,</div>",1,["generics::TreasureChest"]]]]]);
+    if (window.register_implementors) {
+        window.register_implementors(implementors);
+    } else {
+        window.pending_implementors = implementors;
+    }
+})()
+//{"start":57,"fragment_lengths":[1547]}
