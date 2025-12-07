@@ -2,7 +2,7 @@ use std::option;
 
 fn main() {
     // Vectors - Similar to arrya but Subsequent homogeneus data (concequent same type of date) which can grow shrink
-    // Difference between array and vector is, we cannot add or remvoe element in array
+    // Difference between array and vector is, we cannot add or remove element in array
     // But in vector we can make it grow by adding new element and we can remove existing element
 
     // Creating a empty vector with new() method

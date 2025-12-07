@@ -1,0 +1,8 @@
+C:\Code\rust_learning\dependencies_example\target\debug\deps\weezl-7080e2630c2b783d.d: C:\Users\Geek\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\weezl-0.1.12\src\lib.rs C:\Users\Geek\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\weezl-0.1.12\src\decode.rs C:\Users\Geek\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\weezl-0.1.12\src\encode.rs C:\Users\Geek\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\weezl-0.1.12\src\error.rs
+
+C:\Code\rust_learning\dependencies_example\target\debug\deps\libweezl-7080e2630c2b783d.rmeta: C:\Users\Geek\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\weezl-0.1.12\src\lib.rs C:\Users\Geek\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\weezl-0.1.12\src\decode.rs C:\Users\Geek\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\weezl-0.1.12\src\encode.rs C:\Users\Geek\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\weezl-0.1.12\src\error.rs
+
+C:\Users\Geek\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\weezl-0.1.12\src\lib.rs:
+C:\Users\Geek\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\weezl-0.1.12\src\decode.rs:
+C:\Users\Geek\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\weezl-0.1.12\src\encode.rs:
+C:\Users\Geek\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\weezl-0.1.12\src\error.rs:
