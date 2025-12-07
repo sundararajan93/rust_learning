@@ -1,0 +1,1 @@
+searchState.loadedDescShard("modules_examples", 0, "This module is about the items\nThis constant is store owner\nThis constant is store owner\nThis function is to greet the owner\nReturns the argument unchanged.\nCalls <code>U::from(self)</code>.")

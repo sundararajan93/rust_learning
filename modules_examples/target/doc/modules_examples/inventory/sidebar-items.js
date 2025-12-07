@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":["MANAGER","STORE_OWNER"],"fn":["greeting_owner"],"mod":["item"]};
